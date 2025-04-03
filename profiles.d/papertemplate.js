@@ -10,7 +10,7 @@ module.exports = function papertemplate (name){
 return {
   name: titlename,
   request_args: {
-    url: `https://papermc.io/api/v2/projects/${lowername}/`,
+    url: `https://api.papermc.io/v2/projects/${lowername}`,
     json: true
   },
   handler: function (profile_dir, body, callback) {
@@ -21,7 +21,7 @@ return {
       for (var index in body.versions) {
         var version = body.versions[index];
 
-        p.push(axios({ url: `https://papermc.io/api/v2/projects/${lowername}/versions/${version}/`}).catch((err) => {
+        p.push(axios({ url: `https://api.papermc.io/v2/projects/${lowername}/versions/${version}/`}).catch((err) => {
           console.log(err);
         }));
         
