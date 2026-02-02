@@ -1,3 +1,3 @@
-var papertemplate = require('./papertemplate');
+var papertemplate = require('./papertemplate.js');
 
 exports.profile = papertemplate('paper'); 

@@ -238,9 +238,11 @@ mineos.dependencies(function(err, binaries) {
     res.end();
   });
 
-  app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/admin/login.html');
+  app.get('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+    });
   });
 
   app.use('/socket.io', express.static(__dirname + '/node_modules/socket.io'));
